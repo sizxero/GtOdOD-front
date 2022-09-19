@@ -63,6 +63,11 @@ div.Login #login-btn, div.Login #signup-btn, div.SignUp #login-btn, div.SignUp #
   margin: 10px 0;
 }
 
+div.ToDoList div.InputArea button {
+  height: 100%;
+  width: 100%;
+}
+
 div.Footer {
   background-color: #B0DFDB;
   display: flex;

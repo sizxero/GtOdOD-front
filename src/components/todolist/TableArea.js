@@ -1,10 +1,17 @@
+import { Paper,  List } from '@mui/material';
 import ToDoElement from "./ToDoElement";
 
-const TableArea = () => {
+const TableArea = ({items, editItem, deleteItem, checkedItem}) => {
     return (
-        <>테이블 영역<ToDoElement></ToDoElement>
-        <ToDoElement></ToDoElement>
-        <ToDoElement></ToDoElement></>
+            <div className="TableArea">
+            <Paper>
+                <List>
+                {
+                items.map((item)=>(<ToDoElement item={item} key={item.id} onEditItem={editItem} onDeleteItem={deleteItem} onCheckedItem={checkedItem}/>))
+                }
+                </List>
+            </Paper>
+            </div>
     );
 }
 
