@@ -11,10 +11,10 @@ const theme = createTheme({
     },
   });
   
-  export default function Palette() {
+  export default function Palette(props) {
     return (
       <ThemeProvider theme={theme}>
-        <Button color="primary" variant="contained" id="login-btn">LOGIN</Button>
+        <Button color="primary" variant="contained" id={props.id}>{props.title}</Button>
       </ThemeProvider>
     );
   }
