@@ -1,4 +1,5 @@
-import { InputArea, LoginBtn } from '../components/login';
+import { CustomBtn } from '../components/common';
+import { InputArea } from '../components/login';
 import LoginIcon from '@mui/icons-material/Login';
 import { Link } from "react-router-dom";
 const Login = () => {
@@ -9,7 +10,9 @@ const Login = () => {
             </div>
             <InputArea />
             <Link to="/signup">회원이 아니십니까?</Link>
-            <LoginBtn />
+            <CustomBtn 
+            id="login-btn"
+            title="LOGIN" />
         </div>
     );
 }
