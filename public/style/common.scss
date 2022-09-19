@@ -4,6 +4,7 @@ $GtOdOD_yellow: #FFD400;
 $GtOdOD_green: #80B463;
 $GtOdOD_blue: #27AAE1;
 $GtOdOD_turquoise: #4EB8B9;
+$GtOdOD_darkturquoise: #005666;
 $GtOdOD_purple: #9E7EB9;
 $GtOdOD_gray: #A7A9AC;
 $GtOdOD_orange: #F79552;
@@ -15,3 +16,66 @@ $GtOdOD_mint: #B0DFDB;
 $GtOdOD_lightpurple: #BBB8DC;
 $GtOdOD_white: #FFFFFF;
 $GtOdOD_black: #000000;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+div.Logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+    
+    span.Good {
+        font-weight: 900;
+        font-size: 100px;
+        color: $GtOdOD_mint;
+    }
+
+    span.ToDo {
+        font-weight: 700;
+        font-size: 86px;
+        color: $GtOdOD_turquoise;
+    }
+    p {
+        margin-top: -15px;
+        font-size: 20px;
+        font-weight: 300;
+        color: $GtOdOD_darkturquoise;
+    }
+}
+
+div.Footer {
+    background-color: $GtOdOD_mint;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 100px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+
+    p {
+        font-size: 16px;
+        font-weight: 300;
+        color: $GtOdOD_darkturquoise;
+    }
+    p.link {
+        a {
+            text-decoration: none;
+            color: $GtOdOD_darkturquoise;
+            margin: 0 5px;
+        }
+        a:hover {
+            font-weight: 400;
+        }
+    }
+}

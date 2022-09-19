@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+div.Logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0;
+}
+div.Logo span.Good {
+  font-weight: 900;
+  font-size: 100px;
+  color: #B0DFDB;
+}
+div.Logo span.ToDo {
+  font-weight: 700;
+  font-size: 86px;
+  color: #4EB8B9;
+}
+div.Logo p {
+  margin-top: -15px;
+  font-size: 20px;
+  font-weight: 300;
+  color: #005666;
+}
+
+div.Footer {
+  background-color: #B0DFDB;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+div.Footer p {
+  font-size: 16px;
+  font-weight: 300;
+  color: #005666;
+}
+div.Footer p.link a {
+  text-decoration: none;
+  color: #005666;
+  margin: 0 5px;
+}
+div.Footer p.link a:hover {
+  font-weight: 400;
+}
