@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -30,42 +31,109 @@ div.Logo p {
   color: #005666;
 }
 
-div.Login, div.SignUp {
+div.Login, div.SignUp, div.AddCategory {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-div.Login div.Title, div.SignUp div.Title {
+div.Login div.Title, div.SignUp div.Title, div.AddCategory div.Title {
   padding: 10px 0;
 }
-div.Login div.Title h1, div.SignUp div.Title h1 {
+div.Login div.Title h1, div.SignUp div.Title h1, div.AddCategory div.Title h1 {
   font-weight: 700;
   color: #4EB8B9;
 }
-div.Login div.InputArea, div.SignUp div.InputArea {
+div.Login div.InputArea, div.SignUp div.InputArea, div.AddCategory div.InputArea {
   display: flex;
   flex-direction: column;
   align-content: space-around;
 }
-div.Login div.InputArea input, div.SignUp div.InputArea input {
+div.Login div.InputArea input, div.SignUp div.InputArea input, div.AddCategory div.InputArea input {
   width: 300px;
 }
-div.Login a, div.SignUp a {
+div.Login a, div.SignUp a, div.AddCategory a {
   color: #005666;
   font-weight: 500;
 }
-div.Login a:hover, div.SignUp a:hover {
+div.Login a:hover, div.SignUp a:hover, div.AddCategory a:hover {
   color: #4EB8B9;
 }
-div.Login #login-btn, div.Login #signup-btn, div.SignUp #login-btn, div.SignUp #signup-btn {
+div.Login #login-btn, div.Login #signup-btn, div.SignUp #login-btn, div.SignUp #signup-btn, div.AddCategory #login-btn, div.AddCategory #signup-btn {
   width: 300px;
   height: 40px;
   margin: 10px 0;
 }
 
-div.ToDoList div.InputArea button {
+div.ToDoList div.InputArea div.InputWrapper div.CategoryWrapper div.SelectWrapper {
   height: 100%;
   width: 100%;
+}
+div.ToDoList div.InputArea div.InputWrapper div.CategoryWrapper div.SelectWrapper li:last-child() span {
+  margin-top: -10px;
+}
+div.ToDoList div.InputArea div.InputWrapper div.ToDoTxtWrapper input {
+  height: 30px;
+}
+div.ToDoList div.InputArea div.InputWrapper div.BtnWrapper button {
+  height: 100%;
+  width: 100%;
+}
+
+div.AddCategory div.Color {
+  padding: 30px 0;
+}
+div.AddCategory div.Color h2 {
+  font-weight: 500;
+  color: #005666;
+  padding: 10px 0;
+}
+div.AddCategory div.Color div.CtgPalette {
+  width: 300px;
+  height: 100px;
+}
+div.AddCategory div.Color div.CtgPalette div {
+  width: 50px;
+  height: 50px;
+  float: left;
+  border: 1px solid black;
+  border-radius: 100px;
+  box-sizing: border-box;
+}
+div.AddCategory div.Color div.CtgPalette div:nth-child(1) {
+  background-color: #EF404A;
+}
+div.AddCategory div.Color div.CtgPalette div:nth-child(2) {
+  background-color: #F2728C;
+}
+div.AddCategory div.Color div.CtgPalette div:nth-child(3) {
+  background-color: #F79552;
+}
+div.AddCategory div.Color div.CtgPalette div:nth-child(4) {
+  background-color: #FFD400;
+}
+div.AddCategory div.Color div.CtgPalette div:nth-child(5) {
+  background-color: #D5E05B;
+}
+div.AddCategory div.Color div.CtgPalette div:nth-child(6) {
+  background-color: #80B463;
+}
+div.AddCategory div.Color div.CtgPalette div:nth-child(7) {
+  background-color: #81D3EB;
+}
+div.AddCategory div.Color div.CtgPalette div:nth-child(8) {
+  background-color: #27AAE1;
+}
+div.AddCategory div.Color div.CtgPalette div:nth-child(9) {
+  background-color: #9E7EB9;
+}
+div.AddCategory div.Color div.CtgPalette div:nth-child(10) {
+  background-color: #BBB8DC;
+}
+div.AddCategory div.Color div.CtgPalette div:nth-child(11) {
+  background-color: #A7A9AC;
+}
+div.AddCategory div.Color div.CtgPalette div:nth-child(12) {
+  background-color: #000000;
 }
 
 div.Footer {
@@ -91,4 +159,42 @@ div.Footer p.link a {
 }
 div.Footer p.link a:hover {
   font-weight: 400;
+}
+
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* modal창 */
+.modalBody {
+  position: absolute;
+  width: 300px;
+  height: 500px;
+  padding: 40px;
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+}
+
+#modalCloseBtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  color: rgba(0, 0, 0, 0.7);
+  background-color: transparent;
+  font-size: 20px;
+}
+
+#modalCloseBtn:hover {
+  cursor: pointer;
 }

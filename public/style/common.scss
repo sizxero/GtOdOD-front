@@ -51,7 +51,7 @@ div.Logo {
     }
 }
 
-div.Login, div.SignUp {
+div.Login, div.SignUp, div.AddCategory {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,9 +92,93 @@ div.Login, div.SignUp {
 
 div.ToDoList {
     div.InputArea {
-        button {
-            height: 100%;
-            width: 100%;
+        div.InputWrapper {
+            div.CategoryWrapper {
+                div.SelectWrapper {
+                    height: 100%;
+                    width: 100%;
+                    
+                    li:last-child() {
+                        span {
+                            margin-top: -10px;
+                        }
+                    }
+                }
+            }
+            div.ToDoTxtWrapper {
+                input {
+                    height: 30px;
+                }
+            }
+            div.BtnWrapper {
+                button {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+div.AddCategory {
+ 
+    div.Color {
+        padding: 30px 0;
+        h2 {
+            font-weight: 500;
+            color: $GtOdOD_darkturquoise;
+            padding: 10px 0;
+        }
+        div.CtgPalette {
+            width: 300px;
+            height: 100px;
+            // position: relative;
+            
+            div {
+                width: 50px;
+                height: 50px;
+                float: left;
+                border: 1px solid black;
+                border-radius: 100px;
+                box-sizing: border-box;
+            }
+    
+            div:nth-child(1){
+                background-color: $GtOdOD_red;
+            }
+            div:nth-child(2){
+                background-color: $GtOdOD_pink;
+            }
+            div:nth-child(3){
+                background-color: $GtOdOD_orange;
+            }
+            div:nth-child(4){
+                background-color: $GtOdOD_yellow;
+            }
+            div:nth-child(5){
+                background-color: $GtOdOD_lime;
+            }
+            div:nth-child(6){
+                background-color: $GtOdOD_green;
+            }
+            div:nth-child(7){
+                background-color: $GtOdOD_skyblue;
+            }
+            div:nth-child(8){
+                background-color: $GtOdOD_blue;
+            }
+            div:nth-child(9){
+                background-color: $GtOdOD_purple;
+            }
+            div:nth-child(10){
+                background-color: $GtOdOD_lightpurple;
+            }
+            div:nth-child(11){
+                background-color: $GtOdOD_gray;
+            }
+            div:nth-child(12){
+                background-color: $GtOdOD_black;
+            }
         }
     }
 }
@@ -126,3 +210,41 @@ div.Footer {
         }
     }
 }
+
+.Modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+   
+  /* modal창 */
+  .modalBody {
+    position: absolute;
+    width: 300px;
+    height: 500px;
+    padding: 40px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+  }
+   
+  #modalCloseBtn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    color: rgba(0, 0, 0, 0.7);
+    background-color: transparent;
+    font-size: 20px;
+  }
+   
+  #modalCloseBtn:hover {
+    cursor: pointer;
+  }
