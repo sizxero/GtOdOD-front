@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import { Header, Footer } from "./components/common";
+import { Logo, Footer } from "./components/common";
 import { Login, SignUp, ToDoList } from "./pages";
 import { Provider } from 'react-redux';
 import store from './redux/Store';
@@ -8,13 +8,13 @@ const App = () => {
 	return (
 		<Provider store={store(rootReducer)}>
         <BrowserRouter basename={process.env.PUBLIC_URL}>
-            {/* <Header /> */}
+            <Logo />
             <Routes>
                 <Route path='/' element={<ToDoList />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/signup' element={<SignUp />} />
             </Routes>
-            {/* <Footer />            */}
+            <Footer />           
         </BrowserRouter>
         </Provider>
 	);
