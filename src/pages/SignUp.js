@@ -11,7 +11,8 @@ const SignUp = () => {
             <InputArea />
             <CustomBtn 
             id="signup-btn"
-            title="SIGN UP" />
+            title="SIGN UP"
+            color="primary" />
         </div>
     );
 }

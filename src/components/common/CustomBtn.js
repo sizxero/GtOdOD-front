@@ -8,13 +8,19 @@ const theme = createTheme({
         // Purple and green play nicely together.
         main: "#4EB8B9",
       },
+      secondary: {
+        main: "#D3D3D3",
+      },
+      warning: {
+        main: "#B0DFDB"
+      }
     },
   });
   
   export default function Palette(props) {
     return (
       <ThemeProvider theme={theme}>
-        <Button color="primary" variant="contained" id={props.id}>{props.title}</Button>
+        <Button color={props.color} variant="contained" id={props.id}>{props.title}</Button>
       </ThemeProvider>
     );
   }

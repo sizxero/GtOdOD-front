@@ -12,7 +12,8 @@ const Login = () => {
             <Link to="/signup">회원이 아니십니까?</Link>
             <CustomBtn 
             id="login-btn"
-            title="LOGIN" />
+            title="LOGIN"
+            color="primary" />
         </div>
     );
 }
