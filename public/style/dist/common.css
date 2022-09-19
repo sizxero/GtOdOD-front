@@ -30,6 +30,39 @@ div.Logo p {
   color: #005666;
 }
 
+div.Login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+div.Login div.Title {
+  padding: 10px 0;
+}
+div.Login div.Title h1 {
+  font-weight: 700;
+  color: #4EB8B9;
+}
+div.Login div.InputArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+div.Login div.InputArea input {
+  width: 300px;
+}
+div.Login a {
+  color: #005666;
+  font-weight: 500;
+}
+div.Login a:hover {
+  color: #4EB8B9;
+}
+div.Login #login-btn {
+  width: 300px;
+  height: 40px;
+  margin: 10px 0;
+}
+
 div.Footer {
   background-color: #B0DFDB;
   display: flex;

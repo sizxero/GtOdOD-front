@@ -1,6 +1,11 @@
+import { TextField } from "@material-ui/core";
+
 const InputArea = () => {
     return (
-        <>로그인 입력 영역</>
+        <div className="InputArea">
+        <TextField id="outlined-basic" label="ID" variant="outlined" />
+        <TextField id="outlined-basic" label="PW" variant="outlined" />
+        </div>
     );
 }
 

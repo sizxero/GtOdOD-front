@@ -31,7 +31,7 @@ div.Logo {
     flex-direction: column;
     align-items: center;
     padding: 50px 0;
-    
+
     span.Good {
         font-weight: 900;
         font-size: 100px;
@@ -48,6 +48,45 @@ div.Logo {
         font-size: 20px;
         font-weight: 300;
         color: $GtOdOD_darkturquoise;
+    }
+}
+
+div.Login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    div.Title {
+        padding: 10px 0;
+        h1 {
+            font-weight: 700;
+            color: $GtOdOD_turquoise;
+        }
+    }
+
+    div.InputArea {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        input {
+            width: 300px;
+        }
+    }
+
+    a {
+        color: $GtOdOD_darkturquoise;
+        font-weight: 500;
+    }
+
+    a:hover {
+        color: $GtOdOD_turquoise;
+    }
+
+    #login-btn {
+        width: 300px;
+        height: 40px;
+        margin: 10px 0;
     }
 }
 
