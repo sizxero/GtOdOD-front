@@ -30,34 +30,34 @@ div.Logo p {
   color: #005666;
 }
 
-div.Login {
+div.Login, div.SignUp {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-div.Login div.Title {
+div.Login div.Title, div.SignUp div.Title {
   padding: 10px 0;
 }
-div.Login div.Title h1 {
+div.Login div.Title h1, div.SignUp div.Title h1 {
   font-weight: 700;
   color: #4EB8B9;
 }
-div.Login div.InputArea {
+div.Login div.InputArea, div.SignUp div.InputArea {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-content: space-around;
 }
-div.Login div.InputArea input {
+div.Login div.InputArea input, div.SignUp div.InputArea input {
   width: 300px;
 }
-div.Login a {
+div.Login a, div.SignUp a {
   color: #005666;
   font-weight: 500;
 }
-div.Login a:hover {
+div.Login a:hover, div.SignUp a:hover {
   color: #4EB8B9;
 }
-div.Login #login-btn {
+div.Login #login-btn, div.Login #signup-btn, div.SignUp #login-btn, div.SignUp #signup-btn {
   width: 300px;
   height: 40px;
   margin: 10px 0;

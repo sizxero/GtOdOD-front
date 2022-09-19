@@ -1,8 +1,18 @@
 import InputArea from '../components/signup/InputArea';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import { CustomBtn } from '../components/common';
 
 const SignUp = () => {
     return (
-        <>회원가입<InputArea /></>
+        <div className="SignUp">
+            <div className="Title">
+                <h1><PersonAddIcon/> SIGN UP</h1>
+            </div>
+            <InputArea />
+            <CustomBtn 
+            id="signup-btn"
+            title="SIGN UP" />
+        </div>
     );
 }
 
