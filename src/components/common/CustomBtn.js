@@ -20,7 +20,11 @@ const theme = createTheme({
   export default function Palette(props) {
     return (
       <ThemeProvider theme={theme}>
-        <Button color={props.color} variant="contained" id={props.id}>{props.title}</Button>
+        <Button 
+        color={props.color} 
+        variant="contained" 
+        id={props.id}
+        onClick={props.clickEvt}>{props.title}</Button>
       </ThemeProvider>
     );
   }

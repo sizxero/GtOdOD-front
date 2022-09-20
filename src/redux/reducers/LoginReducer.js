@@ -9,10 +9,6 @@ const reducers = (state=initialState, action) => {
     const { type } = action;
 
     switch (type) {
-        case Action.LOGIN: {
-            return state
-        }
-
         case Action.WRITE_ID_LOGIN: {
             return {
                 ...state,
