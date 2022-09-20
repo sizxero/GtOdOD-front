@@ -18,6 +18,7 @@ const ToDoElement = ({item, onEditItem, onDeleteItem, onCheckedItem}) => {
             marginRight: "10px" 
         }}/>
         <ListItemText>
+            <h4>Category</h4>
             <InputBase
                 type="text" 
                 inputProps={{"aria-label":"naked", readOnly: readOnly}}
