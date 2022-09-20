@@ -1,3 +1,7 @@
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import * as Action from "../redux/actions/ToDoAction";
+
 import { Container } from '@mui/material';
 import { useState } from 'react';
 import { InputArea, TableArea } from '../components/todolist';
@@ -5,25 +9,39 @@ import Modal from "../components/common/Modal";
 import { AddCategory } from '.';
 
 const ToDoList = () => {
-    let [topNo, setTopNo] = useState(3);
     const [addCategory, setAddCategory] = useState(false);
-    const [items, setItems] = useState([
-        {id: 0, title: 'hello world 1', done: true},
-        {id: 1, title: 'hello world 2', done: false},
-        {id: 2, title: 'hello world 3', done: true},
-    ]);
+    let dispatch = useDispatch();
+    let state = useSelector((state) => state.toDoReducer);
+
+    const writeToDo = (e) => dispatch(Action.writeToDo(e.target.value));
+    const rewriteToDo = (e) => dispatch(Action.rewriteToDo(e.target.value));
+    const selectCtg = (e) => {
+        if (e.target.value === 'add')
+            setAddCategory(!addCategory);
+        else
+            dispatch(Action.selectCtg(e.target.value))
+    };
+
+    const addToDo = () => console.log(state.todo);
+
+    useEffect(() => {
+
+    }, [state]);
 
     return (
         <div className="ToDoList">
             <Container maxWidth="md">
-                <InputArea topNo={topNo}
-                openModal={() => setAddCategory(!addCategory)}/>
-                <TableArea items={items} />
+                <InputArea
+                openModal={() => setAddCategory(!addCategory)}
+                writeToDo={writeToDo}
+                selectCtg={selectCtg}
+                addToDo={addToDo}/>
+                <TableArea items={state.todolist} />
                 {addCategory && (
-        <Modal closeModal={() => setAddCategory(!addCategory)}>
-            <AddCategory />
-        </Modal>
-      )}
+                    <Modal closeModal={() => setAddCategory(!addCategory)}>
+                        <AddCategory />
+                    </Modal>
+                )}
             </Container>
         </div>
     );

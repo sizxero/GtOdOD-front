@@ -6,37 +6,37 @@ export const REWRITE_TODO= 'REWRITE_TODO';
 export const SELECT_CTG = 'SELECT_CTG';
 
 // Action creators
-const dispatchToDoList = (todolist) => {
+export const dispatchToDoList = (todolist) => {
     return {
         type: 'DISPATCH_TODOLIST',
         todolist: todolist
     }
 }
 
-const dispatchToDoTarget = (target) => {
+export const dispatchToDoTarget = (target) => {
     return {
-        type: 'DISPATCH_TODOTARGET',
+        type: 'DISPATCH_TODO_TARGET',
         target: target,
     }
 }
 
-const writeToDo = (ttitle) => {
+export const writeToDo = (ttitle) => {
     return {
-        type: 'WRITE_CATEGORIES',
+        type: 'WRITE_TODO',
         ttitle: ttitle,
     }
 }
 
-const rewriteToDo = (ttitle_re) => {
+export const rewriteToDo = (ttitle_re) => {
     return {
         type: 'REWRITE_TODO',
         ttitle_re: ttitle_re
     }
 }
 
-const selectCtg = (tctg) => {
+export const selectCtg = (tctg) => {
     return {
-        type: 'SELECT_COLOR',
+        type: 'SELECT_CTG',
         tctg: tctg,
     }
 }
