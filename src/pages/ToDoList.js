@@ -10,16 +10,19 @@ import { AddCategory } from '.';
 
 const ToDoList = () => {
     const [addCategory, setAddCategory] = useState(false);
+    const modalToggle = () => setAddCategory(!addCategory);
+    
     let dispatch = useDispatch();
     let state = useSelector((state) => state.toDoReducer);
 
     const writeToDo = (e) => dispatch(Action.writeToDo(e.target.value));
     const rewriteToDo = (e) => dispatch(Action.rewriteToDo(e.target.value));
     const selectCtg = (e) => {
-        if (e.target.value === 'add')
-            setAddCategory(!addCategory);
+        if (e.target.value === 'add') {
+            setAddCategory(!addCategory)
+        }
         else
-            dispatch(Action.selectCtg(e.target.value))
+            dispatch(Action.selectCtg(e.target.value));
     };
 
     const addToDo = () => console.log(state.todo);
@@ -32,14 +35,14 @@ const ToDoList = () => {
         <div className="ToDoList">
             <Container maxWidth="md">
                 <InputArea
-                openModal={() => setAddCategory(!addCategory)}
                 writeToDo={writeToDo}
                 selectCtg={selectCtg}
                 addToDo={addToDo}/>
                 <TableArea items={state.todolist} />
                 {addCategory && (
-                    <Modal closeModal={() => setAddCategory(!addCategory)}>
-                        <AddCategory />
+                    <Modal closeModal={() => modalToggle()}>
+                        <AddCategory
+                        modalToggle={modalToggle} />
                     </Modal>
                 )}
             </Container>

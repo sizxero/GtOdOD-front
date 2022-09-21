@@ -7,6 +7,7 @@ const ToDoElement = ({item, onEditItem, onDeleteItem, onCheckedItem}) => {
     const [readOnly, setReadOnly] = useState(true);
     const [titleData, setTitleData] = useState(item.title);
 
+    const colorMapping = {'$GtOdOD_red': "#EF404A", '$GtOdOD_pink': '#F2728C'};
     return (
         <><ListItem>
         <Checkbox 
@@ -14,11 +15,11 @@ const ToDoElement = ({item, onEditItem, onDeleteItem, onCheckedItem}) => {
         icon={<FavoriteBorder />} 
         checkedIcon={<Favorite />}
         style ={{
-            color: "#4EB8B9",
+            color: colorMapping[item.ctg.color],
             marginRight: "10px" 
         }}/>
         <ListItemText>
-            <h4>Category</h4>
+            <h4>{item.ctg.title}</h4>
             <InputBase
                 type="text" 
                 inputProps={{"aria-label":"naked", readOnly: readOnly}}
@@ -28,7 +29,7 @@ const ToDoElement = ({item, onEditItem, onDeleteItem, onCheckedItem}) => {
                 fullWidth={true}
                 onChange={(e)=>{setTitleData(e.target.value)}}
                 onClick={(e)=>{ setReadOnly(false)}}
-                value={titleData}></InputBase>
+                value={item.title}></InputBase>
         </ListItemText>
         <ListItemSecondaryAction>
             <IconButton aria-label="Delete Todo">

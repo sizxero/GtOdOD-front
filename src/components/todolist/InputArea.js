@@ -9,6 +9,7 @@ const InputArea = (props) => {
                 <Grid container className="InputWrapper">
                     <Grid item xs={3} md={3} className="CategoryWrapper">
                         <CtgSelectBox
+                        ctgs={props.ctgs}
                         selectEvt={props.selectCtg} />
                     </Grid>
                     <Grid item xs={7} md={8} className="ToDoTxtWrapper">

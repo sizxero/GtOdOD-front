@@ -1,24 +1,24 @@
 // Action type
 export const DISPATCH_CATEGORIES = 'DISPATCH_CATEGORIES';
-export const WRITE_CATEGORY = 'WRITE_CATEGORY';
+export const WRITE_CTG = 'WRITE_CTG';
 export const SELECT_COLOR = 'SELECT_COLOR';
 
 // Action creators
-const dispatchCategories = (categories) => {
+export const dispatchCategories = (categories) => {
     return {
         type: 'DISPATCH_CATEGORIES',
         categories: categories
     }
 }
 
-const writeCategory = (ctitle) => {
+export const writeCategory = (ctitle) => {
     return {
-        type: 'WRITE_CATEGORIES',
+        type: 'WRITE_CTG',
         ctitle: ctitle,
     }
 }
 
-const selectColor = (ccolor) => {
+export const selectColor = (ccolor) => {
     return {
         type: 'SELECT_COLOR',
         ccolor: ccolor,
