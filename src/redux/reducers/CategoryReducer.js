@@ -2,13 +2,19 @@ import * as Action from '../actions/CategoryAction';
 
 const initialState = {
     newCategory: { title: '', color: ''},
-    categories: [{id: '1', title: '공부', color: "$GtOdOD_red"},{id: '2', title: '개발', color: "$GtOdOD_pink"}],
+    categories: null,
 };
 
 const reducers = (state=initialState, action) => {
     const { type } = action;
 
     switch (type) {
+        case Action.DISPATCH_CATEGORIES: {
+            return {
+                ...state,
+                categories: action.categories
+            }
+        }
         case Action.WRITE_CTG: {
             return {
                 ...state,

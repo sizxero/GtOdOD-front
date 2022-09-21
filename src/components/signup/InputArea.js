@@ -11,7 +11,11 @@ const InputArea = (props) => {
                         variant="outlined"
                         onChange={props.writeId} />
                     </th>
-                    <td><CustomBtn id="dupl-id-btn" title="중복 체크"/></td>
+                    <td>
+                        <CustomBtn 
+                        id="dupl-id-btn" 
+                        title="중복 체크"
+                        clickEvt={props.duplId}/></td>
                 </tr>
                 <tr>
                     <th>
@@ -52,7 +56,12 @@ const InputArea = (props) => {
                         label="닉네임" 
                         variant="outlined" 
                         onChange={props.writeNick}/></th>
-                    <td><CustomBtn id="dupl-id-btn" title="중복 체크"/></td>
+                    <td>
+                        <CustomBtn 
+                        id="dupl-id-btn" 
+                        title="중복 체크"
+                        clickEvt={props.duplNick}/>
+                    </td>
                 </tr>
                 <tr>
                     <th></th>

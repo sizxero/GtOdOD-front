@@ -6,6 +6,8 @@ import InputArea from '../components/signup/InputArea';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { CustomBtn } from '../components/common';
 
+import UserAPI from '../client/api/UserAPI';
+
 const SignUp = () => {
     let dispatch = useDispatch();
     let state = useSelector((state) => state.signUpReducer);
@@ -16,8 +18,17 @@ const SignUp = () => {
     const writeName = (e) => dispatch(Action.writeNameSignUp(e.target.value));
     const writeNick = (e) => dispatch(Action.writeNickSignUp(e.target.value));
 
-    const clickSignUp = () => {
-        console.log(state);
+    const checkDuplId = async() => {
+        await UserAPI.duplId(state.id);
+    }
+
+    const checkDuplNick = async() => {
+        await UserAPI.duplNick(state.nick);
+    }
+
+    const clickSignUp = async () => {
+        await UserAPI.signup(state);
+        window.location.href = "/login";
     }   
 
     useEffect(() => {
@@ -35,7 +46,9 @@ const SignUp = () => {
             writePwRe={writePwRe}
             writeName={writeName}
             writeNick={writeNick}
-            isSamePw={state.pwchk}/>
+            isSamePw={state.pwchk}
+            duplId={checkDuplId}
+            duplNick={checkDuplNick}/>
             <CustomBtn 
             id="signup-btn"
             title="SIGN UP"

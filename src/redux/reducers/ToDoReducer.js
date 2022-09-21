@@ -1,29 +1,31 @@
 import * as Action from '../actions/ToDoAction';
 
 const initialState = {
-    todolist: [
-        {id: 0, ctg: {title: '공부', color: '$GtOdOD_red'}, title: '정처기 실기 공부', done: true},
-        {id: 1, ctg: {title: '개발', color: '$GtOdOD_pink'}, title: '투두리스트 화면 작성', done: true},
-        {id: 2, ctg: {title: '개발', color: '$GtOdOD_pink'}, title: '리덕스 적용', done: false},
-    ],
+    todolist: null,
     targetTodo: null,
-    todo: { ctg: '', title: '', done: false,}
+    todo: { ctgId: '', title: '', done: false,}
 };
 
 const reducers = (state=initialState, action) => {
     const { type } = action;
 
     switch (type) {
+        case Action.DISPATCH_TODOLIST: {
+            return {
+                ...state,
+                todolist: action.todolist,
+            }
+        }
         case Action.WRITE_TODO: {
             return {
                 ...state,
-                todo: {ctg: state.todo.ctg, title: action.ttitle, done: state.todo.done}
+                todo: {ctgId: state.todo.ctgId, title: action.ttitle, done: state.todo.done}
             }
         }
         case Action.SELECT_CTG: {
             return {
                 ...state,
-                todo: {ctg: action.tctg, title: state.todo.title, done: state.todo.done}
+                todo: {ctgId: action.tctg, title: state.todo.title, done: state.todo.done}
             }
         }
         default: {

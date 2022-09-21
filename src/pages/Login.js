@@ -7,6 +7,8 @@ import { CustomBtn } from '../components/common';
 import { InputArea } from '../components/login';
 import LoginIcon from '@mui/icons-material/Login';
 
+import UserAPI from '../client/api/UserAPI';
+
 const Login = () => { 
     let dispatch = useDispatch();
     let state = useSelector((state) => state.loginReducer);
@@ -14,8 +16,9 @@ const Login = () => {
     const writeId = (e) => dispatch(Action.writeIdLogin(e.target.value));
     const writePw = (e) => dispatch(Action.writePwLogin(e.target.value));
 
-    const clickLogin = () => {
-        console.log(state);
+    const clickLogin = async () => {
+        await UserAPI.login(state);
+        window.location.href="/";
     }   
     
     useEffect(() => {

@@ -5,8 +5,10 @@ import * as Action from "../../redux/actions/CategoryAction";
 import { CustomBtn } from '../../components/common';
 import { CtgPalette } from '../../components/todolist';
 import { TextField } from "@material-ui/core";
-import { Link } from "react-router-dom";
+
 import CreateNewFolderOutlinedIcon from '@mui/icons-material/CreateNewFolderOutlined';
+
+import CategoryAPI from '../../client/api/CategoryAPI';
 
 const AddCategory = (props) => {
     let dispatch = useDispatch();
@@ -14,13 +16,13 @@ const AddCategory = (props) => {
 
     const selectColor = (e) => dispatch(Action.selectColor(e.target.id));
 
-    const clickAdd = () => {
+    const clickAdd = async () => {
+        await CategoryAPI.addCategory(state.newCategory);
         console.log(state.newCategory);
+        props.modalToggle();
+        window.location.href = '/';
     }   
 
-    useEffect(() => {
-
-    }, [state]);
     return (
         <div className="AddCategory">
             <div className="Title">
