@@ -1,6 +1,6 @@
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
 import { Checkbox, IconButton, InputBase, ListItem, ListItemSecondaryAction, ListItemText } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as Action from "../../redux/actions/ToDoAction"; 
 import DeleteOutline from '@mui/icons-material/DeleteOutline'
@@ -50,6 +50,10 @@ const ToDoElement = (props) => {
         await ToDoAPI.deleteToDo(item);
         dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo().then(x=>x.data)));
     }
+
+    useEffect(() => {
+
+    }, [titleData]);
 
     return (
         <><ListItem>

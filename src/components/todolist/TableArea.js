@@ -8,7 +8,7 @@ const TableArea = (props) => {
                 <List>
                 {
                 props.items !== null ?
-                props.items.map((item)=>(<ToDoElement item={item} key={item.id}/>))
+                props.items.map((item)=>(<ToDoElement item={item} key={item.no}/>))
                 : <></>
                 }
                 </List>

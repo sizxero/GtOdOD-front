@@ -2,11 +2,16 @@ import { Grid, Paper, TextField } from '@mui/material';
 import { CustomBtn } from '../common';
 import { CtgSelectBox } from '.';
 
+
+import { useSelector } from "react-redux";
+
 const InputArea = (props) => {
     const keyPressInput = (e) => {
         if(e.key === 'Enter')
             props.addToDo();
     }
+
+    let state = useSelector((state) => state.toDoReducer.todo);
 
     return (
         <div className="InputArea">
@@ -21,7 +26,8 @@ const InputArea = (props) => {
                         <TextField fullWidth 
                         placeholder='할 일을 입력하세요 ...'
                         onChange={props.writeToDo} 
-                        onKeyPress={keyPressInput}/>
+                        onKeyPress={keyPressInput}
+                        value={state.title}/>
                     </Grid>
                     <Grid item xs={2} md={1} className="BtnWrapper">
                         <CustomBtn

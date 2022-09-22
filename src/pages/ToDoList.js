@@ -28,7 +28,8 @@ const ToDoList = () => {
     
     const selectCtg = (e) => {
         if (e.target.value === 'add') {
-            setAddCategory(!addCategory)
+            setAddCategory(!addCategory);
+            dispatch(Action.selectCtg(''));
         }
         else {
             dispatch(Action.selectCtg(e.target.value));
@@ -38,6 +39,7 @@ const ToDoList = () => {
     const addToDo = async() => {
         await ToDoAPI.addToDo(state.todo);
         dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo().then(x=>x.data)));
+        dispatch(Action.writeToDo(''))
     };
 
     useEffect(() => {
@@ -53,7 +55,7 @@ const ToDoList = () => {
                 addToDo={addToDo}/>
                 {opt ?
                 state.todolist !== null ?                          
-                <TableArea items={state.todolist.filter(x => !x.done)} />
+                <TableArea items={state.todolist.filter(x => !(x.done))} />
                 : <></>  
                 :
                 state.todolist !== null ?                          
