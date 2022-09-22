@@ -3,6 +3,11 @@ import { CustomBtn } from '../common';
 import { CtgSelectBox } from '.';
 
 const InputArea = (props) => {
+    const keyPressInput = (e) => {
+        if(e.key === 'Enter')
+            props.addToDo();
+    }
+
     return (
         <div className="InputArea">
              <Paper style={{margin: "16px 0"}}>
@@ -15,7 +20,8 @@ const InputArea = (props) => {
                     <Grid item xs={7} md={8} className="ToDoTxtWrapper">
                         <TextField fullWidth 
                         placeholder='할 일을 입력하세요 ...'
-                        onChange={props.writeToDo} />
+                        onChange={props.writeToDo} 
+                        onKeyPress={keyPressInput}/>
                     </Grid>
                     <Grid item xs={2} md={1} className="BtnWrapper">
                         <CustomBtn

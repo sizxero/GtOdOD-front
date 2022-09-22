@@ -17,14 +17,12 @@ const ToDoList = () => {
     
     let dispatch = useDispatch();
     let state = useSelector((state) => state.toDoReducer);
-    let state2 = useSelector((state) => state.categoryReducer);
 
     const dispatchData = async () => {
         dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo().then(x=>x.data)));
         dispatch(Action2.dispatchCategories(await CategoryAPI.findAllCategories().then(x=>x.data)));
     }
     const writeToDo = (e) => dispatch(Action.writeToDo(e.target.value));
-    const rewriteToDo = (e) => dispatch(Action.rewriteToDo(e.target.value));
     
     const selectCtg = (e) => {
         if (e.target.value === 'add') {

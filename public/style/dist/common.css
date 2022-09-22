@@ -70,6 +70,9 @@ div.Login #login-btn, div.Login #signup-btn, div.SignUp #login-btn, div.SignUp #
   margin: 10px 0;
 }
 
+div.ToDoList {
+  padding-bottom: 150px;
+}
 div.ToDoList div.InputArea div.InputWrapper div.CategoryWrapper div.SelectWrapper {
   height: 100%;
   width: 100%;
@@ -160,9 +163,10 @@ div.Footer {
   align-items: center;
   justify-content: center;
   height: 100px;
-  position: absolute;
+  position: fixed;
   width: 100%;
   bottom: 0;
+  margin-top: 50px;
 }
 div.Footer p {
   font-size: 16px;

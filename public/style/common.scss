@@ -99,6 +99,7 @@ div.Login, div.SignUp, div.AddCategory {
 }
 
 div.ToDoList {
+    padding-bottom: 150px;
     div.InputArea {
         div.InputWrapper {
             div.CategoryWrapper {
@@ -211,9 +212,10 @@ div.Footer {
     justify-content: center;
 
     height: 100px;
-    position: absolute;
+    position: fixed;
     width: 100%;
     bottom: 0;
+    margin-top: 50px;
 
     p {
         font-size: 16px;

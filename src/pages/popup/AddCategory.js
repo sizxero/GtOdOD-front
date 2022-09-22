@@ -25,6 +25,7 @@ const AddCategory = (props) => {
     const clickAdd = async () => {
         await CategoryAPI.addCategory(state.newCategory);
         props.modalToggle();
+        dispatch(Action.dispatchCategories(await CategoryAPI.findAllCategories().then(x=>x.data)))
     }   
 
     useEffect(() => {}, [state.categories]);
