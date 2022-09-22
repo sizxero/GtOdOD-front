@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import * as Action from "../redux/actions/ToDoAction";
 import * as Action2 from "../redux/actions/CategoryAction";
 
-import { Container } from '@mui/material';
+import { Container, Checkbox, FormControlLabel } from '@mui/material';
 import { useState } from 'react';
 import { InputArea, TableArea } from '../components/todolist';
 import Modal from "../components/common/Modal";
@@ -15,6 +15,8 @@ const ToDoList = () => {
     const [addCategory, setAddCategory] = useState(false);
     const modalToggle = () => setAddCategory(!addCategory);
     
+    const [opt, setOpt] = useState(false);
+
     let dispatch = useDispatch();
     let state = useSelector((state) => state.toDoReducer);
 
@@ -49,7 +51,12 @@ const ToDoList = () => {
                 writeToDo={writeToDo}
                 selectCtg={selectCtg}
                 addToDo={addToDo}/>
-                {state.todolist !== null ?
+                {opt ?
+                state.todolist !== null ?                          
+                <TableArea items={state.todolist.filter(x => !x.done)} />
+                : <></>  
+                :
+                state.todolist !== null ?                          
                 <TableArea items={state.todolist} />
                 : <></>
                 }
@@ -59,6 +66,9 @@ const ToDoList = () => {
                         modalToggle={modalToggle} />
                     </Modal>
                 )}
+                <FormControlLabel 
+                control={<Checkbox checked={opt} onClick={() => setOpt(!opt)}/>} 
+                label='완료항목 보지 않기' />
             </Container>
         </div>
     );
