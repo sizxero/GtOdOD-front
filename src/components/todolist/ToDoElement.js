@@ -1,12 +1,16 @@
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
 import { Checkbox, IconButton, InputBase, ListItem, ListItemSecondaryAction, ListItemText } from "@mui/material";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import * as Action from "../../redux/actions/ToDoAction"; 
 import DeleteOutline from '@mui/icons-material/DeleteOutline'
+import ToDoAPI from "../../client/api/ToDoAPI";
 
 const ToDoElement = (props) => {
     const [readOnly, setReadOnly] = useState(true);
     const [titleData, setTitleData] = useState(props.item.title);
+    const dispatch = useDispatch();
+
     const colorMapping = {
         '$GtOdOD_red': '#EF404A', 
         '$GtOdOD_pink': '#F2728C',
@@ -23,6 +27,30 @@ const ToDoElement = (props) => {
     };
     let state = useSelector((state) => state.categoryReducer.categories);
 
+    const checkedItem = async (item) => {
+        item.done = !item.done;
+        await ToDoAPI.editToDo(item);
+        dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo().then(x=>x.data)));
+    }
+
+    const editItemHandler = (e) => {
+        if(e.key === 'Enter') {
+            setReadOnly(true);
+            editItem(props.item);
+        }
+    }
+
+    const editItem = async (item) => {
+        item.title = titleData;
+        await ToDoAPI.editToDo(item);
+        dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo().then(x=>x.data)));
+    }
+
+    const deleteItem = async (item) => {
+        await ToDoAPI.deleteToDo(item);
+        dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo().then(x=>x.data)));
+    }
+
     return (
         <><ListItem>
         {state !== null 
@@ -33,7 +61,8 @@ const ToDoElement = (props) => {
         style ={{
             color: colorMapping[state[state.findIndex((x)=>x.no === Number(props.item.ctgId))].color],
             marginRight: "10px" 
-        }}/>
+        }}
+        onClick={() => checkedItem(props.item)}/>
         : <></>
         }
         <ListItemText>
@@ -50,10 +79,13 @@ const ToDoElement = (props) => {
                 fullWidth={true}
                 onChange={(e)=>{setTitleData(e.target.value)}}
                 onClick={(e)=>{ setReadOnly(false)}}
-                value={props.item.title}></InputBase>
+                onKeyPress={(e) => editItemHandler(e)}
+                value={titleData}></InputBase>
         </ListItemText>
         <ListItemSecondaryAction>
-            <IconButton aria-label="Delete Todo">
+            <IconButton
+            aria-label="Delete Todo"
+            onClick={() => deleteItem(props.item)}>
                 <DeleteOutline />
             </IconButton>
         </ListItemSecondaryAction>

@@ -27,8 +27,9 @@ const API = {
         }
     },
     deleteToDo: async (data) => {
+        console.log(data.no);
         try {
-            const res = await authInstance.delete(`/todo`, data);
+            const res = await authInstance.delete(`/todo?no=${data.no}`);
             return res.data;
         } catch(e) {
             console.log(e);

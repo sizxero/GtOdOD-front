@@ -16,6 +16,12 @@ const reducers = (state=initialState, action) => {
                 todolist: action.todolist,
             }
         }
+        case Action.DISPATCH_TODO_TARGET: {
+            return {
+                ...state,
+                targetTodo: action.target,
+            }
+        }
         case Action.WRITE_TODO: {
             return {
                 ...state,
