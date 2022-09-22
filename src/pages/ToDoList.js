@@ -17,6 +17,8 @@ const ToDoList = () => {
     
     let dispatch = useDispatch();
     let state = useSelector((state) => state.toDoReducer);
+    let state2 = useSelector((state) => state.categoryReducer);
+
     const dispatchData = async () => {
         dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo().then(x=>x.data)));
         dispatch(Action2.dispatchCategories(await CategoryAPI.findAllCategories().then(x=>x.data)));
@@ -34,13 +36,13 @@ const ToDoList = () => {
     };
 
     const addToDo = async() => {
-        console.log(state.todo)
         await ToDoAPI.addToDo(state.todo);
+        dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo().then(x=>x.data)));
     };
 
     useEffect(() => {
         dispatchData();
-    }, [state.todo]);
+    }, []);
 
     return (
         <div className="ToDoList">

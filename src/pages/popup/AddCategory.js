@@ -18,11 +18,10 @@ const AddCategory = (props) => {
 
     const clickAdd = async () => {
         await CategoryAPI.addCategory(state.newCategory);
-        console.log(state.newCategory);
         props.modalToggle();
-        window.location.href = '/';
     }   
 
+    useEffect(() => {}, [state.categories]);
     return (
         <div className="AddCategory">
             <div className="Title">
