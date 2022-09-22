@@ -41,6 +41,14 @@ const API = {
         } catch(e) {
             console.log(e);
         }
+    },
+    findNick: async(id) => {
+        try {
+            const res = await defaultInstance.get(`/user/findnick?str=${id}`);
+            return res.data;
+        } catch(e) {
+            console.log(e);
+        }
     }
 };
 
