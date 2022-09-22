@@ -14,7 +14,13 @@ const AddCategory = (props) => {
     let dispatch = useDispatch();
     let state = useSelector((state) => state.categoryReducer);
 
-    const selectColor = (e) => dispatch(Action.selectColor(e.target.id));
+    const selectColor = (e) => {      
+        dispatch(Action.selectColor(e.target.id));
+        e.target.parentNode.childNodes.forEach((node) => 
+            node.classList.remove('select')
+        );
+        e.target.classList.add('select');
+    };
 
     const clickAdd = async () => {
         await CategoryAPI.addCategory(state.newCategory);

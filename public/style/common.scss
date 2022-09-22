@@ -49,6 +49,14 @@ div.Logo {
         font-weight: 300;
         color: $GtOdOD_darkturquoise;
     }
+
+    p#logout {
+        margin: 0;
+    }
+
+    p#logout:hover {
+        text-decoration: underline;
+    }
 }
 
 div.Login, div.SignUp, div.AddCategory {
@@ -178,6 +186,19 @@ div.AddCategory {
             }
             div:nth-child(12){
                 background-color: $GtOdOD_black;
+            }
+
+            div:nth-child(1):hover, div:nth-child(2):hover,
+            div:nth-child(3):hover, div:nth-child(4):hover,
+            div:nth-child(5):hover, div:nth-child(6):hover,
+            div:nth-child(7):hover, div:nth-child(8):hover,
+            div:nth-child(9):hover, div:nth-child(10):hover,
+            div:nth-child(11):hover, div:nth-child(12):hover {
+                border: 3px solid black;
+            }
+
+            div.select {
+                border: 3px solid black;
             }
         }
     }
