@@ -11,9 +11,9 @@
 
 
 
-| Main page | Login page | Signup page |
-|------|---|---|
-| ![image](https://user-images.githubusercontent.com/51533341/190959141-7e7c60ef-1ea6-4a11-86ab-e5c1cc0f5c08.png) |![image](https://user-images.githubusercontent.com/51533341/190959217-6f5c75d8-0724-4d05-b498-9439c20d1270.png)|![image](https://user-images.githubusercontent.com/51533341/190959263-eb2c3fcc-4139-4ec0-b8b9-1a40fe15ad37.png)|
+| 투두리스트 | 로그인 | 회원가입 | 카테고리 추가 |
+|------|---|---|---|
+|![image](https://user-images.githubusercontent.com/51533341/191652318-e7d584e4-6098-4aa7-94c4-dda136a247bf.png)|![image](https://user-images.githubusercontent.com/51533341/191652236-700b0421-f446-457a-933c-ccb117de2e19.png)|![image](https://user-images.githubusercontent.com/51533341/191652269-5edbb8d9-5d8c-433d-a04a-62912a898b2d.png)|![image](https://user-images.githubusercontent.com/51533341/191652350-4783be10-3f96-41d8-9213-dd49c50ce347.png)|
 
 
 
@@ -29,12 +29,17 @@
       ㄴ index.html
 
     ㄴ src
+      ㄴ client
+        ㄴ api
+        ㄴ Cookie.js
       ㄴ components
         ㄴ common
         ㄴ login
         ㄴ signup
         ㄴ todolist
+          ㄴ category
       ㄴ pages
+        ㄴ popup
       ㄴ redux
         ㄴ actions
         ㄴ reducers
