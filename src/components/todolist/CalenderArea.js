@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as Action from '../../redux/actions/ToDoAction';
 
 import dayjs from 'dayjs';
+import 'dayjs/locale/ko';
+
 import {TextField, IconButton } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -11,6 +13,7 @@ import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import ToDoAPI from '../../client/api/ToDoAPI';
 
 const CalenderArea = () => {
+    dayjs.locale('ko');
     const [value, setValue] = useState(dayjs());
     const dispatch = useDispatch();
     let state = useSelector((state) => state.toDoReducer.todo);
@@ -37,7 +40,7 @@ const CalenderArea = () => {
             </IconButton>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DesktopDatePicker
-            inputFormat="YYYY년 MM월 DD일"
+            inputFormat="YYYY년 MM월 DD일 ddd요일"
             value={value}
             onChange={handleChange}
             renderInput={(params) => <TextField {...params} />}
