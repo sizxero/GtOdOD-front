@@ -5,7 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import * as Action from "../../redux/actions/ToDoAction"; 
 import ToDoAPI from "../../client/api/ToDoAPI";
 
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+
 const ToDoElement = (props) => {
+    dayjs.extend(customParseFormat);
+
     const [readOnly, setReadOnly] = useState(true);
     const [titleData, setTitleData] = useState(props.item.title);
     const dispatch = useDispatch();
@@ -25,12 +30,12 @@ const ToDoElement = (props) => {
         '$GtOdOD_black': '#000000'
     };
     let state = useSelector((state) => state.categoryReducer.categories);
-    let date = useSelector((state) => state.toDoReducer.targetDate)
+    let todostate = useSelector((state) => state.toDoReducer)
 
     const checkedItem = async (item) => {
         item.done = !item.done;
         await ToDoAPI.editToDo(item);
-        dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo(date).then(x=>x.data)));
+        dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo(todostate.targetDate).then(x=>x.data)));
     }
 
     const editItemHandler = (e) => {
@@ -43,12 +48,12 @@ const ToDoElement = (props) => {
     const editItem = async (item) => {
         item.title = titleData;
         await ToDoAPI.editToDo(item);
-        dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo(date).then(x=>x.data)));
+        dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo(todostate.targetDate).then(x=>x.data)));
     }
 
     const deleteItem = async (item) => {
         await ToDoAPI.deleteToDo(item);
-        dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo(date).then(x=>x.data)));
+        dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo(todostate.targetDate).then(x=>x.data)));
     }
 
     useEffect(() => {
@@ -88,7 +93,11 @@ const ToDoElement = (props) => {
         </ListItemText>
         <ListItemSecondaryAction>
             <IconButton
-                aria-label="Delete Todo">
+                aria-label="Delete Todo"
+                onClick={() => {
+                    props.item.date=dayjs(props.item.date, 'YYYY-MM-DDTHH:mm:ss').add(1, 'd').format('YYYY-MM-DDTHH:mm:ss');
+                    editItem(props.item);
+                }}>
                     <ArrowRightAlt />
             </IconButton>
             <IconButton
