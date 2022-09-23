@@ -73,6 +73,10 @@ div.Login #login-btn, div.Login #signup-btn, div.SignUp #login-btn, div.SignUp #
 div.ToDoList {
   padding-bottom: 150px;
 }
+div.ToDoList div.CalanderArea {
+  display: flex;
+  justify-content: center;
+}
 div.ToDoList div.InputArea div.InputWrapper div.CategoryWrapper div.SelectWrapper {
   height: 100%;
   width: 100%;

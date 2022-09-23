@@ -100,6 +100,11 @@ div.Login, div.SignUp, div.AddCategory {
 
 div.ToDoList {
     padding-bottom: 150px;
+
+    div.CalanderArea {
+        display: flex;
+        justify-content: center;
+    }
     div.InputArea {
         div.InputWrapper {
             div.CategoryWrapper {
