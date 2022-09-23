@@ -2,9 +2,9 @@ import { authInstance } from './AxiosInstance';
 import { getCookie } from '../Cookie';
 
 const API = {
-    findAllToDo: async () => {
+    findAllToDo: async (date) => {
         try {
-            const res = await authInstance.get(`/todo`);
+            const res = await authInstance.get(`/todo?date=${date}`);
             return res.data;
         } catch(e) {
             console.log(e);

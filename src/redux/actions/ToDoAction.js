@@ -1,8 +1,9 @@
 // Action type
 export const DISPATCH_TODOLIST = 'DISPATCH_TODOLIST';
 export const DISPATCH_TODO_TARGET = 'DISPATCH_TODO_TARGET';
+export const DISPATCH_TARGET_DATE = 'DISPATCH_TARGET_DATE';
 export const WRITE_TODO= 'WRITE_TODO';
-export const REWRITE_TODO= 'REWRITE_TODO';
+export const SELECT_DATE= 'SELECT_DATE';
 export const SELECT_CTG = 'SELECT_CTG';
 
 // Action creators
@@ -20,6 +21,13 @@ export const dispatchToDoTarget = (target) => {
     }
 }
 
+export const dispatchTargetDate = (date) => {
+    return {
+        type: 'DISPATCH_TARGET_DATE',
+        date: date,
+    }
+}
+
 export const writeToDo = (ttitle) => {
     return {
         type: 'WRITE_TODO',
@@ -27,10 +35,10 @@ export const writeToDo = (ttitle) => {
     }
 }
 
-export const rewriteToDo = (ttitle_re) => {
+export const selectDate = (date) => {
     return {
-        type: 'REWRITE_TODO',
-        ttitle_re: ttitle_re
+        type: 'SELECT_DATE',
+        tdate: date
     }
 }
 

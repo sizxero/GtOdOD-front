@@ -1,9 +1,8 @@
-import { Favorite, FavoriteBorder } from "@mui/icons-material";
+import { Favorite, FavoriteBorder, DeleteOutline, ArrowRightAlt } from "@mui/icons-material";
 import { Checkbox, IconButton, InputBase, ListItem, ListItemSecondaryAction, ListItemText } from "@mui/material";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as Action from "../../redux/actions/ToDoAction"; 
-import DeleteOutline from '@mui/icons-material/DeleteOutline'
 import ToDoAPI from "../../client/api/ToDoAPI";
 
 const ToDoElement = (props) => {
@@ -26,11 +25,12 @@ const ToDoElement = (props) => {
         '$GtOdOD_black': '#000000'
     };
     let state = useSelector((state) => state.categoryReducer.categories);
+    let date = useSelector((state) => state.toDoReducer.targetDate)
 
     const checkedItem = async (item) => {
         item.done = !item.done;
         await ToDoAPI.editToDo(item);
-        dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo().then(x=>x.data)));
+        dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo(date).then(x=>x.data)));
     }
 
     const editItemHandler = (e) => {
@@ -43,12 +43,12 @@ const ToDoElement = (props) => {
     const editItem = async (item) => {
         item.title = titleData;
         await ToDoAPI.editToDo(item);
-        dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo().then(x=>x.data)));
+        dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo(date).then(x=>x.data)));
     }
 
     const deleteItem = async (item) => {
         await ToDoAPI.deleteToDo(item);
-        dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo().then(x=>x.data)));
+        dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo(date).then(x=>x.data)));
     }
 
     useEffect(() => {
@@ -87,6 +87,10 @@ const ToDoElement = (props) => {
                 value={titleData}></InputBase>
         </ListItemText>
         <ListItemSecondaryAction>
+            <IconButton
+                aria-label="Delete Todo">
+                    <ArrowRightAlt />
+            </IconButton>
             <IconButton
             aria-label="Delete Todo"
             onClick={() => deleteItem(props.item)}>

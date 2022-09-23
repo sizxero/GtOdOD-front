@@ -5,11 +5,13 @@ import * as Action2 from "../redux/actions/CategoryAction";
 
 import { Container, Checkbox, FormControlLabel } from '@mui/material';
 import { useState } from 'react';
-import { InputArea, TableArea } from '../components/todolist';
+import { CalenderArea, InputArea, TableArea } from '../components/todolist';
 import Modal from "../components/common/Modal";
 import { AddCategory } from '.';
 import ToDoAPI from '../client/api/ToDoAPI';
 import CategoryAPI from '../client/api/CategoryAPI';
+
+import dayjs from 'dayjs';
 
 const ToDoList = () => {
     const [addCategory, setAddCategory] = useState(false);
@@ -21,7 +23,7 @@ const ToDoList = () => {
     let state = useSelector((state) => state.toDoReducer);
 
     const dispatchData = async () => {
-        dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo().then(x=>x.data)));
+        dispatch(Action.dispatchToDoList(await ToDoAPI.findAllToDo(state.targetDate).then(x=>x.data)));
         dispatch(Action2.dispatchCategories(await CategoryAPI.findAllCategories().then(x=>x.data)));
     }
     const writeToDo = (e) => dispatch(Action.writeToDo(e.target.value));
@@ -44,11 +46,13 @@ const ToDoList = () => {
 
     useEffect(() => {
         dispatchData();
-    }, []);
+        console.log(state.targetDate);
+    }, [state.todo]);
 
     return (
         <div className="ToDoList">
             <Container maxWidth="md">
+                <CalenderArea />
                 <InputArea
                 writeToDo={writeToDo}
                 selectCtg={selectCtg}

@@ -13,6 +13,7 @@ const InputArea = (props) => {
 
     let state = useSelector((state) => state.toDoReducer.todo);
 
+    console.log(state);
     return (
         <div className="InputArea">
              <Paper style={{margin: "16px 0"}}>
